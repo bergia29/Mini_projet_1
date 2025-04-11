@@ -1,22 +1,34 @@
 package fr.isep.algo;
 
-class Passager extends Personne{
-    protected String Passeport;
+class Passager extends Personne {
+    protected String passeport;
 
-    public Passager(int Identifiant, String Nom, String Adresse, int Contact, String Passeport){
-        super(Identifiant, Nom, Adresse, Contact);
-        this.Passeport = Passeport;
+    public Passager(int identifiant, String nom, String adresse, int contact, String passeport){
+        super(identifiant, nom, adresse, contact);
+        this.passeport = passeport;
     }
 
-    public void reserverVol(){
+    public String getPasseport() {
+        return passeport;
     }
-    public void annulerReservation(){
+
+    public void setPasseport(String passeport) {
+        this.passeport = passeport;
     }
-    public void obtenirReservation(){
+
+    // Méthodes pour gérer la réservation
+    public void reserverVol() {
+    }
+
+    public void annulerReservation() {
+    }
+
+    public void obtenirReservation() {
     }
 
     @Override
-    public void obtenirInfos(){
+    public void obtenirInfos() {
         super.obtenirInfos();
+        System.out.println("Passeport: " + passeport);
     }
 }

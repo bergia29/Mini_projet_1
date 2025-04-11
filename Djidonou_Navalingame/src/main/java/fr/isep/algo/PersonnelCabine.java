@@ -1,23 +1,45 @@
 package fr.isep.algo;
 
 class PersonnelCabine extends Employe {
-    protected String qualification;
+    private String qualification; // Utilisation de "qualification" en minuscule
 
-    public PersonnelCabine(int Identifiant, String Nom, String Adresse, int Contact, int NumeroEmploye, int DateEmbauche, String qualification){
-        super(Identifiant, Nom, Adresse, Contact, NumeroEmploye, DateEmbauche);
-        this.qualification = qualification;
+    // Constructeur
+    public PersonnelCabine(int identifiant, String nom, String adresse, int contact,
+                           int numeroEmploye, String dateEmbauche, String qualification) {
+        super(identifiant, nom, adresse, contact, numeroEmploye, dateEmbauche);
+        this.qualification = qualification; // Le paramètre et l'attribut sont maintenant cohérents
     }
 
-    public void affecterVol(){
+    // Getters et Setters
+    public String getQualification() {
+        return qualification; // Utilisation de "qualification" en minuscule
     }
-    public void obtenirVol(){
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification; // Utilisation de "qualification" en minuscule
+    }
+
+    // Surcharge de la méthode obtenirRole
+    @Override
+    public String obtenirRole() {
+        return "Personnel de Cabine";
+    }
+
+    // Méthodes spécifiques demandées
+    public void affecterVol(Vol vol) {
+        System.out.println("Personnel de cabine " + this.nom + " affecté au vol " + vol.getNumeroVol());
+        // Code pour affecter le personnel au vol
+    }
+
+    public Vol obtenirVol(String numeroVol) {
+        System.out.println("Recherche du vol avec numéro: " + numeroVol + " pour le personnel de cabine " + this.nom);
+        // Code pour chercher le vol dans la base de données
+        return null;
     }
 
     @Override
-    public void obtenirInfos(){
+    public void obtenirInfos() {
         super.obtenirInfos();
-    }
-    public void obtenirRole(){
-        super.obtenirRole();
+        System.out.println("Qualification: " + qualification); // Affiche la qualification
     }
 }
