@@ -1,9 +1,9 @@
 package fr.isep.algo;
 
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    // Listes pour stocker les objets
     private static List<Personne> personnes = new ArrayList<>();
     private static List<Employe> employes = new ArrayList<>();
     private static List<Pilote> pilotes = new ArrayList<>();
@@ -29,6 +29,8 @@ public class Main {
             System.out.println("7. Gestion des Vols");
             System.out.println("8. Gestion des Réservations");
             System.out.println("9. Gestion des Aéroports");
+            System.out.println("10. Lire le fichier Vols.txt");  // Option ajoutée pour lire le fichier
+            System.out.println("11. Ecrire dans un fichier");
             System.out.println("0. Quitter");
             System.out.print("Faites votre choix : ");
             choix = scanner.nextInt();
@@ -60,6 +62,15 @@ public class Main {
                     break;
                 case 9:
                     gestionAeroports();
+                    break;
+                case 10 :
+                    // Lire le fichier Vols.txt
+                    String pathFile = "C:/Users/charn/IdeaProjects/Djidonou_Navalingame/Vols.txt";
+                    lireFichier(pathFile);
+                    break;
+                case 11 :
+                    String pathFile1 = "C:/Users/charn/IdeaProjects/Djidonou_Navalingame/Vols.txt";
+                    ecrireFichier(pathFile1);
                     break;
                 case 0:
                     System.out.println("Fin du programme.");
@@ -139,7 +150,7 @@ public class Main {
                     for (ListIterator<Personne> li = personnes.listIterator(); li.hasNext(); ) {
                         Personne p = li.next();
                         if (p.getIdentifiant() == idModification) {
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer le nouveau nom : ");
                             String nouveauNom = scanner.nextLine();
                             System.out.print("Entrer la nouvelle adresse : ");
@@ -191,7 +202,7 @@ public class Main {
                     int contact = scanner.nextInt();
                     System.out.print("Entrer le numéro d'employé : ");
                     int numeroEmploye = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer la date d'embauche (format YYYY-MM-DD) : ");
                     String dateEmbauche = scanner.nextLine();
                     employes.add(new Employe(identifiant, nom, adresse, contact, numeroEmploye, dateEmbauche));
@@ -240,14 +251,14 @@ public class Main {
                     for (ListIterator<Employe> li = employes.listIterator(); li.hasNext(); ) {
                         Employe e = li.next();
                         if (e.getNumeroEmploye() == numeroModification) {
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer le nouveau nom : ");
                             String nouveauNom = scanner.nextLine();
                             System.out.print("Entrer la nouvelle adresse : ");
                             String nouvelleAdresse = scanner.nextLine();
                             System.out.print("Entrer le nouveau contact : ");
                             int nouveauContact = scanner.nextInt();
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer la nouvelle date d'embauche : ");
                             String nouvelleDateEmbauche = scanner.nextLine();
                             li.set(new Employe(e.getIdentifiant(), nouveauNom, nouvelleAdresse, nouveauContact, numeroModification, nouvelleDateEmbauche));
@@ -289,14 +300,14 @@ public class Main {
                 case 1:
                     System.out.print("Entrer l'identifiant : ");
                     int identifiant = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer le nom : ");
                     String nom = scanner.nextLine();
                     System.out.print("Entrer l'adresse : ");
                     String adresse = scanner.nextLine();
                     System.out.print("Entrer le contact : ");
                     int contact = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer le numéro de passeport : ");
                     String passeport = scanner.nextLine();
                     passagers.add(new Passager(identifiant, nom, adresse, contact, passeport));
@@ -345,14 +356,14 @@ public class Main {
                     for (ListIterator<Passager> li = passagers.listIterator(); li.hasNext(); ) {
                         Passager p = li.next();
                         if (p.getIdentifiant() == idModification) {
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer le nouveau nom : ");
                             String nouveauNom = scanner.nextLine();
                             System.out.print("Entrer la nouvelle adresse : ");
                             String nouvelleAdresse = scanner.nextLine();
                             System.out.print("Entrer le nouveau contact : ");
                             int nouveauContact = scanner.nextInt();
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer le nouveau numéro de passeport : ");
                             String nouveauPasseport = scanner.nextLine();
                             li.set(new Passager(idModification, nouveauNom, nouvelleAdresse, nouveauContact, nouveauPasseport));
@@ -393,7 +404,7 @@ public class Main {
             switch (choix) {
                 case 1:
                     System.out.print("Entrer l'immatriculation : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String immatriculation = scanner.nextLine();
                     System.out.print("Entrer le modèle de l'avion : ");
                     String modele = scanner.nextLine();
@@ -407,7 +418,7 @@ public class Main {
 
                 case 2:
                     System.out.print("Entrer l'immatriculation de l'avion recherché : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String immatriculationRecherche = scanner.nextLine();
                     boolean trouve = false;
                     for (Avion a : avions) {
@@ -494,7 +505,7 @@ public class Main {
             switch (choix) {
                 case 1:
                     System.out.print("Entrer le numéro de réservation : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String numeroReservation = scanner.nextLine();
                     System.out.print("Entrer la date de réservation (format YYYY-MM-DD) : ");
                     String dateReservation = scanner.nextLine();
@@ -514,9 +525,9 @@ public class Main {
                         }
                     }
                     System.out.print("Entrer le numéro du vol associé : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String numeroVol = scanner.nextLine();
-                    Vol vol = new Vol(numeroVol); // Vous devrez remplacer cette ligne pour trouver un vol réel
+                    Vol vol = new Vol(numeroVol);
                     System.out.print("Entrer l'identifiant du passager associé : ");
                     int identifiantPassager = scanner.nextInt();
                     Passager passager = new Passager(identifiantPassager, "Nom", "Adresse", 1234, "Passeport"); // Remplacer par une recherche
@@ -631,7 +642,7 @@ public class Main {
             switch (choix) {
                 case 1: // Ajouter un vol
                     System.out.print("Entrer le numéro du vol : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String numeroVol = scanner.nextLine();
                     System.out.print("Entrer l'origine du vol : ");
                     String origine = scanner.nextLine();
@@ -647,7 +658,7 @@ public class Main {
 
                 case 2: // Rechercher un vol
                     System.out.print("Entrer le numéro du vol recherché : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String numeroRecherche = scanner.nextLine();
                     boolean trouve = false;
                     for (Vol v : vols) {
@@ -664,7 +675,7 @@ public class Main {
 
                 case 3: // Supprimer un vol
                     System.out.print("Entrer le numéro du vol à supprimer : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String numeroSuppression = scanner.nextLine();
                     Iterator<Vol> iterator = vols.iterator();
                     boolean supprime = false;
@@ -684,7 +695,7 @@ public class Main {
 
                 case 4: // Modifier un vol
                     System.out.print("Entrer le numéro du vol à modifier : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String numeroModification = scanner.nextLine();
                     boolean modifie = false;
                     for (ListIterator<Vol> li = vols.listIterator(); li.hasNext(); ) {
@@ -738,7 +749,7 @@ public class Main {
             switch (choix) {
                 case 1: // Ajouter un aéroport
                     System.out.print("Entrer le nom de l'aéroport : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String nom = scanner.nextLine();
                     System.out.print("Entrer la ville de l'aéroport : ");
                     String ville = scanner.nextLine();
@@ -750,7 +761,7 @@ public class Main {
 
                 case 2: // Rechercher un aéroport
                     System.out.print("Entrer le nom de l'aéroport recherché : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String nomRecherche = scanner.nextLine();
                     boolean trouve = false;
                     for (Aeroport a : aeroports) {
@@ -767,7 +778,7 @@ public class Main {
 
                 case 3: // Supprimer un aéroport
                     System.out.print("Entrer le nom de l'aéroport à supprimer : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String nomSuppression = scanner.nextLine();
                     Iterator<Aeroport> iterator = aeroports.iterator();
                     boolean supprime = false;
@@ -787,7 +798,7 @@ public class Main {
 
                 case 4: // Modifier un aéroport
                     System.out.print("Entrer le nom de l'aéroport à modifier : ");
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     String nomModification = scanner.nextLine();
                     boolean modifie = false;
                     for (ListIterator<Aeroport> li = aeroports.listIterator(); li.hasNext(); ) {
@@ -874,7 +885,7 @@ public class Main {
                 case 1: // Ajouter un pilote
                     System.out.print("Entrer l'identifiant : ");
                     int identifiant = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer le nom : ");
                     String nom = scanner.nextLine();
                     System.out.print("Entrer l'adresse : ");
@@ -883,7 +894,7 @@ public class Main {
                     int contact = scanner.nextInt();
                     System.out.print("Entrer le numéro d'employé : ");
                     int numeroEmploye = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer la date d'embauche : ");
                     String dateEmbauche = scanner.nextLine();
                     System.out.print("Entrer la licence : ");
@@ -936,14 +947,14 @@ public class Main {
                     for (ListIterator<Pilote> li = pilotes.listIterator(); li.hasNext(); ) {
                         Pilote p = li.next();
                         if (p.getNumeroEmploye() == numeroModification) {
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer le nouveau nom : ");
                             String nouveauNom = scanner.nextLine();
                             System.out.print("Entrer la nouvelle adresse : ");
                             String nouvelleAdresse = scanner.nextLine();
                             System.out.print("Entrer le nouveau contact : ");
                             int nouveauContact = scanner.nextInt();
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer la nouvelle date d'embauche : ");
                             String nouvelleDateEmbauche = scanner.nextLine();
                             System.out.print("Entrer la nouvelle licence : ");
@@ -989,7 +1000,7 @@ public class Main {
                 case 1: // Ajouter un membre du personnel de cabine
                     System.out.print("Entrer l'identifiant : ");
                     int identifiant = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer le nom : ");
                     String nom = scanner.nextLine();
                     System.out.print("Entrer l'adresse : ");
@@ -998,7 +1009,7 @@ public class Main {
                     int contact = scanner.nextInt();
                     System.out.print("Entrer le numéro d'employé : ");
                     int numeroEmploye = scanner.nextInt();
-                    scanner.nextLine(); // Consomme la ligne restante
+                    scanner.nextLine();
                     System.out.print("Entrer la date d'embauche : ");
                     String dateEmbauche = scanner.nextLine();
                     System.out.print("Entrer la qualification : ");
@@ -1049,14 +1060,14 @@ public class Main {
                     for (ListIterator<PersonnelCabine> li = personnelCabine.listIterator(); li.hasNext(); ) {
                         PersonnelCabine pc = li.next();
                         if (pc.getNumeroEmploye() == numeroModification) {
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer le nouveau nom : ");
                             String nouveauNom = scanner.nextLine();
                             System.out.print("Entrer la nouvelle adresse : ");
                             String nouvelleAdresse = scanner.nextLine();
                             System.out.print("Entrer le nouveau contact : ");
                             int nouveauContact = scanner.nextInt();
-                            scanner.nextLine(); // Consomme la ligne restante
+                            scanner.nextLine();
                             System.out.print("Entrer la nouvelle date d'embauche : ");
                             String nouvelleDateEmbauche = scanner.nextLine();
                             System.out.print("Entrer la nouvelle qualification : ");
@@ -1083,4 +1094,28 @@ public class Main {
         } while (choix != 0);
     }
 
+    // Méthode pour lire un fichier et afficher son contenu
+
+    public static void lireFichier(String pathFile) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(pathFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
+        }
+    }
+
+    public static void ecrireFichier(String pathFile1) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathFile1, true))) { // `true` pour ajouter à la fin du fichier
+            writer.write("Ceci est un exemple de texte ajouté au fichier.");
+            writer.newLine();
+            writer.write("Une autre ligne de texte.");
+            writer.newLine();
+            System.out.println("Le texte a été écrit dans le fichier avec succès !");
+        } catch (IOException e) {
+            System.err.println("Erreur lors de l'écriture dans le fichier : " + e.getMessage());
+        }
+    }
 }

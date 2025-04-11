@@ -40,8 +40,6 @@ class Vol {
     public Vol(String numeroVol, String origine, String destination, String dateHeureDepart, String dateHeureArrivee) {
     }
 
-    // Méthodes spécifiques
-
     // Planifier un vol
     public void planifierVol() {
         if (this.etat == StatutVol.PROGRAMME) {
@@ -70,7 +68,6 @@ class Vol {
         System.out.println("Vol " + this.numeroVol + " modifié.");
     }
 
-    // Afficher la liste des passagers
     public void listingPassager() {
         if (this.passagers.isEmpty()) {
             System.out.println("Aucun passager inscrit pour ce vol.");
@@ -82,7 +79,7 @@ class Vol {
         }
     }
 
-    // Autres méthodes (Getters, Setters, etc.)
+
 
     // Getters et Setters
     public String getNumeroVol() {
@@ -181,7 +178,6 @@ class Vol {
         this.equipageCabine.add(membreEquipage);
     }
 
-    // Énumération StatutVol pour les états du vol
     public enum StatutVol {
         PROGRAMME,
         EN_COURS,

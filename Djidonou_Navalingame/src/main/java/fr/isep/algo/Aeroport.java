@@ -52,7 +52,6 @@ class Aeroport {
         return volsArrivee;
     }
 
-    // Méthode spécifique demandée
     public void affecterVol(Vol vol, boolean estDepart) {
         if (estDepart) {
             volsDepart.add(vol);

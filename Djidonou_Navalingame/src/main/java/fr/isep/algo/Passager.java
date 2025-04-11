@@ -16,7 +16,6 @@ class Passager extends Personne {
         this.passeport = passeport;
     }
 
-    // Méthodes pour gérer la réservation
     public void reserverVol() {
     }
 

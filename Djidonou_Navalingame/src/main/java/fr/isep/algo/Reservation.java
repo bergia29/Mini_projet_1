@@ -57,13 +57,13 @@ class Reservation {
         this.passager = passager;
     }
 
-    // Méthode toString pour afficher la réservation de manière lisible
+    // Méthode
     @Override
     public String toString() {
         return "Réservation [Numéro: " + numeroReservation + ", Date: " + dateReservation + ", Statut: " + statut + ", Vol: " + vol + ", Passager: " + passager + "]";
     }
 
-    // Méthodes spécifiques demandées
+
     public void confirmerReservation() {
         this.statut = Statut.CONFIRMEE;  // Utilisation de l'énumération
         this.modifier();
@@ -83,13 +83,10 @@ class Reservation {
         System.out.println("Réservation modifiée: " + this.numeroReservation);
     }
 
-    // Méthode pour effectuer une mise à jour (comme un changement d'état ou d'information)
     private void modifier() {
-        // Simuler une action pour modifier la réservation
         System.out.println("Réservation " + this.numeroReservation + " mise à jour.");
     }
 
-    // Énumération Statut pour mieux gérer les états de la réservation
     public enum Statut {
         CONFIRMEE,
         ANNULEE,

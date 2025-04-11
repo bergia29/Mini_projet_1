@@ -6,7 +6,7 @@ class Avion {
     private int capacite;
     private boolean disponible;
 
-    // Constructeur pour initialiser l'avion
+
     public Avion(String immatriculation, String modele, int capacite, boolean disponible) {
         this.immatriculation = immatriculation;
         this.modele = modele;
@@ -14,13 +14,12 @@ class Avion {
         this.disponible = disponible;
     }
 
-    // Vérifie si l'avion est disponible et renvoie le statut
     public boolean verifierDisponibilite() {
         System.out.println("Avion " + immatriculation + " (" + modele + "), capacité: " + capacite + ", disponible: " + disponible);
         return disponible;
     }
 
-    // Affecte l'avion à un vol si disponible
+
     public void affecterVol() {
         if (disponible) {
             disponible = false;
@@ -30,7 +29,6 @@ class Avion {
         }
     }
 
-    // Vérifie si l'avion a assez de places pour un certain nombre de passagers
     public boolean verifierCapacite(int passagers) {
         if (passagers <= capacite) {
             System.out.println("L'avion peut accueillir " + passagers + " passagers.");

@@ -29,13 +29,11 @@ class Pilote extends Employe {
         this.heuresDeVol = heuresDeVol;
     }
 
-    // Surcharge de la méthode obtenirRole
     @Override
     public String obtenirRole() {
         return "Pilote";
     }
 
-    // Méthodes spécifiques demandées
     public void affecterVol(Vol vol) {
         System.out.println("Pilote " + this.nom + " affecté au vol " + vol.getNumeroVol());
         // Code pour affecter le pilote au vol

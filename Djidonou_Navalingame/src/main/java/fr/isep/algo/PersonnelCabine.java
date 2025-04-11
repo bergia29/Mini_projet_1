@@ -19,13 +19,11 @@ class PersonnelCabine extends Employe {
         this.qualification = qualification; // Utilisation de "qualification" en minuscule
     }
 
-    // Surcharge de la méthode obtenirRole
     @Override
     public String obtenirRole() {
         return "Personnel de Cabine";
     }
 
-    // Méthodes spécifiques demandées
     public void affecterVol(Vol vol) {
         System.out.println("Personnel de cabine " + this.nom + " affecté au vol " + vol.getNumeroVol());
         // Code pour affecter le personnel au vol
